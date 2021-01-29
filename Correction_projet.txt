@@ -1,0 +1,83 @@
+Polytechnique Montréal
+
+Département de génie informatique et génie logiciel
+
+INF1995: Projet initial en ingénierie informatique
+         et travail en équipe
+
+Grille de correction des programmes:
+
+Identification:
+  Travail Pratique # : tp9
+  Section #  : 05
+  Équipe #   : 96108
+  Correcteur : Bruno Bousquet
+
+
+Lisibilité:(3.5/5)
+  En-têtes en début de programme et de fonctions   (1 point) : 1
+  Identificateurs significatifs (variables, etc.)  (1 point) : 1
+  Commentaires aux endroits stratégiques           (1 point) : 0.5
+  Indentation et facilité de lecture               (1 point) : 1
+  Broches, ressources matérielles bien identifiées (1 point) : 0
+
+Modularité et comprehension: (5/5)
+  Les fonctions sont assez courtes, bien
+        établies et avec de bons paramètres        (1 point) : 1
+  Le code reflète une bonne compréhension
+        des concepts de base                       (2 points): 2
+  Le code montre que la solution proposée
+        permet de bien résoudre le problème        (2 points): 2
+
+Fonctionnalité:(8/10)
+  Soumission réussie sous GIT (bon endroit,
+        sans fichiers inutiles)                    (3 points): 3
+  Compilation sans "warnings" et sans erreurs      (2 point) : 0
+  Fonctionnement correct (évalué en "boite noire") (5 points): 5
+
+
+Total: 16.5/20
+
+
+Commentaires du correcteur:
+Aucune indication claire sur le branchement des périphériques
+
+librairie ne compile pas.
+
+code commenté dans main.cpp
+
+======================= Présence de gitignore(s) ===============================
+*.o
+*.out
+*.d
+*.hex
+*.out.map
+*.a
+.vscode
+serieViaUSB
+*.DS_Store
+~*
+*.bin
+
+====================== Fichiers Indésirables ===================================
+
+
+====================== Output de make pour les problemes =======================
+
+============== output make dans projet/lib_dir ============================
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c diagnostic.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c parcours.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c LED_PORTA.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c start_timer_CTC.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c memoire_24.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c sensors.cpp
+sensors.cpp: In member function ‘void Sensors::readLeft()’:
+sensors.cpp:38:5: error: ‘presentSensor’ was not declared in this scope
+     presentSensor = LEFT_SENSOR;
+     ^
+sensors.cpp: In member function ‘void Sensors::readRight()’:
+sensors.cpp:58:5: error: ‘presentSensor’ was not declared in this scope
+     presentSensor = RIGHT_SENSOR;
+     ^
+../Ressources/Makefile:20: recipe for target 'sensors.o' failed
+make: *** [sensors.o] Error 1

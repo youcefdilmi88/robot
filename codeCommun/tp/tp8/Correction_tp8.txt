@@ -1,0 +1,71 @@
+Polytechnique Montréal
+
+Département de génie informatique et génie logiciel
+
+INF1995: Projet initial en ingénierie informatique
+         et travail en équipe
+
+Grille de correction des programmes:
+
+Identification:
+  Travail Pratique # : tp8
+  Section #  : 05
+  Équipe #   : 96108
+  Correcteur : Yonni Chen
+
+Qualité et choix de code: (9.5/10)
+  La qualités et le choix de vos portions de code choisies                      (5 points) : 4.5
+  La qualités de vos modifications aux Makefiles                                (5 points) : 5
+
+Rapport: (7/7)
+  Explications cohérentes par rapport au code retenu pour former la librairie   (2 points) : 2
+  Explications cohérentes par rapport aux Makefiles modifiés                    (2 points) : 2
+  Explications claires avec un bon niveau de détails                            (2 points) : 2
+  Bon français                                                                  (1 point)  : 1
+
+Remise: (2/3)
+  Bonne soumission de l'ensemble du code (compilation sans erreurs, 
+    sans fichiers inutiles) et du rapport selon le format demandé               (3 points) : 2
+
+
+Total: 18.5/20
+
+Correction basé sur le commit :
+
+  commit 291dada596f9e84e157ca8364bc142f0b6263ec9
+  Author: Youcef Dilmi <youcefdilmi@Youcefs-MacBook-Pro.local>
+  Date:   Sun Mar 11 21:23:42 2018 -0400
+
+Commentaires du correcteur:
+
+[-1]
+# L'option -Werror=all traite les warnings comme des erreurs et votre librairie
+  génère des erreurs de compilation.
+
+[-0.5]
+# Attention aux noms de vos fonctions. Par exemple, startTimerCTC() ou encore set_pwm(). 
+  Votre entete de fonction décrit "Controls speed and rotation direction of each wheel" mais
+  rien dans le nom de vos fonction ne laisse croire qu'il s'agit de moteurs. Idealement,
+  le nom est assez significatif pour eviter de lire la documentation. Et l'objectif d'avoir une
+  librairie c'est de pouvoir la réutiliser facilement.
+
+
+====================== Fichiers Indésirables ===================================
+
+Aucun
+
+============== output make dans codeCommun/tp/tp8/projet_dir/lib_dir =====================
+
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c can.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c init_INT0.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c start_timer_CTC.cpp
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Werror=all -DF_CPU=8000000 -fno-exceptions -c memoire_24.cpp
+memoire_24.cpp: In member function 'uint8_t Memoire24CXXX::lecture(uint16_t, uint8_t*, uint8_t)':
+memoire_24.cpp:280:7: error: this 'while' clause does not guard... [-Werror=misleading-indentation]
+       while ((TWCR & _BV(TWINT)) == 0) ; // Attente de fin de transmission
+       ^~~~~
+memoire_24.cpp:281:10: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the 'while'
+          *donnee++ = TWDR;               // Lecture
+          ^
+cc1plus: some warnings being treated as errors
+make: *** [../Ressources/Makefile.commun:20: memoire_24.o] Error 1

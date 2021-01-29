@@ -1,0 +1,11 @@
+#define F_CPU 8000000
+#include <avr/io.h>
+
+
+void init_INT0()
+{
+    cli (); // cli() bloque les interruptions.
+    EIMSK |= (1 << INT0); // Enable external interrupts
+    EICRA |= (1<<ISC00); // Set INT0_vect to logical change 
+    sei (); // sei permet de recevoir à nouveau des interruptions.
+}

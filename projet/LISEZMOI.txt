@@ -1,0 +1,6 @@
+DESCRIPTION DU PROGRAMME
+Ce programme permet à un robot mobile contrôlé par un microcontrôleur ATmega324PA d’interagir avec une interface de contrôle lorsqu’il est en mode diagnostic, ou de s’orienter dans un parcours lorsqu’il est en mode parcours.
+
+INSTALLATION ET FONCTIONNEMENT DU PROGRAMME
+La fonction main() qui se trouve dans le dossier main_dir permet d’initialiser le microcontrôleur dans un des deux modes, parcours ou diagnostic. On y trouve aussi les différentes routines d’interruption qui sont appelées dans les deux modes. Le main() appelle la fonction diagnostic_run() ou parcours_run(), qui se trouvent dans les fichiers diagnostic.cpp et parcours.cpp du dossier lib_dir, en fonction du mode dans lequel il envoie le robot.
+Le dossier lib_dir contient tous les fichiers dans lesquels les différentes classes et fonctions utilisées par parcours_run() et diagnostic_run() sont implémentées, ainsi que le makefile pour les compiler.
